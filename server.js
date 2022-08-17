@@ -48,6 +48,7 @@ app.get("/:id/:code", async (request, response) => {
     const f = await page.$("#msg")
     const text = await (await f.getProperty('textContent')).jsonValue()
     console.log("Text is: " + text)
+    response.send(text)
 //     if(text="Enter Your IGG ID")
 //         await page.click('#btn_msg_close')
 //         await page.type('#iggid', request.params.id)
