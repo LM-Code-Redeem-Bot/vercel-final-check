@@ -30,7 +30,8 @@ app.get("/:id/:code", async (request, response) => {
 //     await page.keyboard.type(request.params.id)
 //     await page.focus('#cdkey_1')
 //     await page.keyboard.type(request.params.code)
-    await page.type('#iggid', request.params.id)
+//     await page.type('#iggid', request.params.id)
+    await page.$eval('#iggid', (el, value) => el.value = value,  request.params.id);
     await page.type('#cdkey_1', request.params.code)
 //     await page.waitForSelector('#iggid:not(:empty)');
 //     await page.waitForSelector('#cdkey_1:not(:empty)');
